@@ -15,13 +15,19 @@ class door {
   private:
 	  bool DoorA_S;
 	  bool DoorB_S;
+	  bool Activate;
+	  bool Game;
 	  door_state State;
   public:
 	  door();
 	 ~door();
 	  std::function<void(bool)> manage_door_a;
 	  std::function<void(bool)> manage_door_b;
-	  void door_transit();
+	  void door_transit(door_state change);
+	  void door_run();
+	  void SetGame(bool Mode);
+	  void ManageDoorA(bool stan);
+	  void ManageDoorB(bool stan);
 
 
 };

@@ -7,20 +7,21 @@ door::door()
 {
   std::cout << "Door initialized" << std::endl;
   State=Neutral;
+  Activate=false;
+  Game=false;
 }
 
 
 door::~door()
 {
   std::cout << "Door deinitialized" << std::endl;
-  State=Neutral;
-  door_transit();
+  door_transit(Neutral);
 }
 
 
-void door::door_transit()
+void door::door_transit(door_state change)
 {
-  switch(State)
+  switch(change)
   {
     case Idle:
     break;
@@ -49,5 +50,42 @@ void door::door_transit()
     break;
 
   }
+  State=change;
 
+}
+
+void door::door_run()
+{
+   if(Activate)
+   {
+
+    Activate=false;
+   }
+
+
+}
+
+
+void door::SetGame(bool Mode)
+{
+  Game=Mode;
+}
+
+
+void door::ManageDoorA(bool stan)
+{
+if(!Activate)
+{
+   Activate=true;
+
+}
+}
+
+void door::ManageDoorB(bool stan)
+{
+if(!Activate)
+{
+   Activate=true;
+
+}
 }
