@@ -40,7 +40,37 @@ void door::ManageDoorB(bool state) {
   }
 }
 
-void door::DoorRun() {}
+void door::DoorRun() {
+  if (ActionPending) {
+    switch (RequestAction) {
+      case Neutral:
+        if (!Game) {
+          DoorSwitch(Neutral);
+        }
+        break;
+
+      case A_Locked:
+        if (DoorA_S) {
+          DoorSwitch(A_Locked);
+        }
+        break;
+
+      case B_Locked:
+        if (DoorB_S) {
+          DoorSwitch(B_Locked);
+        }
+        break;
+
+      case A_B_Locked:
+        DoorSwitch(A_B_Locked);
+        break;
+
+      default:
+        break;
+    }
+    ActionPending = false;
+  }
+}
 
 void door::DoorSwitch(DoorState Order) {
   switch (Order) {
@@ -69,3 +99,7 @@ void door::DoorSwitch(DoorState Order) {
 }
 
 void door::SetDebug(bool val) { Debug = val; }
+
+void door::SetDoorA_S(bool val) { DoorA_S = val; }
+
+void door::SetDoorB_S(bool val) { DoorB_S = val; }

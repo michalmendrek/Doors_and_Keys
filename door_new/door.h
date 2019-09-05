@@ -28,5 +28,7 @@ class door {
   void ManageDoorB(bool state);
   void DoorRun();
   void SetDebug(bool val);
+  void SetDoorA_S(bool val);
+  void SetDoorB_S(bool val);
 };
 #endif
