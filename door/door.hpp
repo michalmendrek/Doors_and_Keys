@@ -18,6 +18,7 @@ class door {
 	  bool Activate;
 	  bool Game;
 	  door_state State;
+	  door_state StateRequested;
   public:
 	  door();
 	 ~door();

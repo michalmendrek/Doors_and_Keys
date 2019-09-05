@@ -56,13 +56,68 @@ void door::door_transit(door_state change)
 
 void door::door_run()
 {
-   if(Activate)
+   if(Game)
    {
+     if(Activate)
+     {
+      switch(StateRequested)
+			   {
+				case A_Locked:
+						switch(State)
+							    {
+								case A_B_Locked:
+								break;
 
-    Activate=false;
+								case A_Locked:
+								break;
+								case B_Locked:
+								if(DoorB_S){manage_door_b(true);}
+								break;
+
+								default:
+								break;
+							    }
+				break;
+				case B_Locked:
+						switch(State)
+                                                            {
+								case A_B_Locked:
+                                                                break;
+
+                                                                case A_Locked:
+                                                                break;
+                                                                case B_Locked:
+                                                                break;
+
+                                                                default:
+                                                                break;
+                                                            }
+
+				break;
+				case A_B_Locked:
+						switch(State)
+                                                            {
+								case A_B_Locked:
+                                                                break;
+
+                                                                case A_Locked:
+                                                                break;
+                                                                case B_Locked:
+                                                                break;
+
+                                                                default:
+                                                                break;
+                                                            }
+
+				break;
+				default:
+				break;
+			   }
+
+      Activate=false;
+      }
+
    }
-
-
 }
 
 
@@ -77,6 +132,7 @@ void door::ManageDoorA(bool stan)
 if(!Activate)
 {
    Activate=true;
+   StateRequested=B_Locked;
 
 }
 }
@@ -86,6 +142,7 @@ void door::ManageDoorB(bool stan)
 if(!Activate)
 {
    Activate=true;
+   StateRequested=A_Locked;
 
 }
 }
