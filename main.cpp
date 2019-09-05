@@ -25,6 +25,7 @@ int main() {
   drzwi.SetDoorB_S(true);
   int tmp(0);
   while (1) {
+    drzwi.DoorRun();
     cout << "Ustaw Stan Drzwi A" << endl;
     cin >> tmp;
     if (tmp == 1) {
@@ -54,7 +55,8 @@ int main() {
     } else {
       drzwi.ManageDoorB(false);
     }
+    cout << endl << endl;
 
-    drzwi.DoorRun();
+    //drzwi.DoorRun();
   }
 }

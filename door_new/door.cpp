@@ -16,6 +16,12 @@ void door::SetGame(bool Mode) {
   if (Debug) {
     std::cout << "Seting Game Mode to : " << Game << std::endl;
   }
+  if (Game) {
+    if (!ActionPending) {
+      ActionPending = true;
+      RequestAction = A_B_Locked;
+    }
+  }
 }
 
 void door::ManageDoorA(bool state) {
