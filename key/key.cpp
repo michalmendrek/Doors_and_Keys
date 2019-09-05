@@ -1,3 +1,5 @@
-#include <key.hpp>
+#include <key.h>
 
+key::key() {}
 
+key::~key() {}

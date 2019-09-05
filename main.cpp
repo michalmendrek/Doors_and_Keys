@@ -1,5 +1,5 @@
 #include <door.h>
-#include <key.hpp>
+#include <key.h>
 
 using namespace std;
 
