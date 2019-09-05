@@ -13,6 +13,8 @@ enum door_state {Idle=0, Neutral, A_Locked, B_Locked, A_B_Locked};
 class door {
 
   private:
+	  bool DoorA_S;
+	  bool DoorB_S;
 	  door_state State;
   public:
 	  door();
