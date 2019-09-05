@@ -51,9 +51,14 @@ void door::door_run() {
         case A_Locked:
           switch (State) {
             case A_B_Locked:
+              manage_door_a(true);
+              manage_door_b(true);
               break;
 
             case A_Locked:
+              if (DoorA_S) {
+                manage_door_a(true);
+              }
               break;
             case B_Locked:
               if (DoorB_S) {
